@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Student Report";
+}
+
+<h2>Student Report</h2>
+
+@using (Html.BeginForm("Generate", "Report", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="selectedCourseID">Select Course:</label>
+        @Html.DropDownList("selectedCourseID", (SelectList)ViewBag.Courses, new { @class = "form-control" })
+    </div>
+    <button type="submit" name="action" value="preview" formtarget="_blank" class="btn btn-primary">Print Preview</button>
+    <button type="submit" name="action" value="export" class="btn btn-secondary">Export to PDF</button>
+}
